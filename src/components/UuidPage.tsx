@@ -60,7 +60,7 @@ const UuidPage = () => {
         </div>
       )}
       <div className="overflow-y-auto mx-4 md:mx-0 md:w-3/4 2xl:w-1/2 flex flex-col h-[55vh]">
-        {uuidHistory.toReversed().map((u, i) => (
+        {[...uuidHistory].reverse().map((u, i) => (
           <>
             <UuidRecord key={i} order={uuidHistory.length - i} uuid={u} />
             {i != uuidHistory.length - 1 && (
