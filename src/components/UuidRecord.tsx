@@ -18,12 +18,12 @@ const UuidRecord: React.FC<UuidRecordProps> = ({ order, uuid }) => {
   };
 
   return (
-    <div className="flex items-center mt-4 w-full justify-center">
+    <div className="mt-4 flex w-full items-center justify-center">
       <p className="text-sm md:text-base">{order}</p>
-      <h4 className="text-sm md:text-lg px-8 w-2/3 text-right">{uuid}</h4>
-      <div className="w-1/3 flex justify-start">
+      <h4 className="w-2/3 px-8 text-right text-sm md:text-lg">{uuid}</h4>
+      <div className="flex w-1/3 justify-start">
         <CopyToClipboard text={uuid} onCopy={() => toggleCopy()}>
-          <button className="px-2 py-1 md:text-base text-sm md:px-4 md:py-2 border rounded-lg hover:bg-zinc-700 flex items-center">
+          <button className="flex items-center rounded-lg border px-2 py-1 text-sm hover:bg-zinc-700 md:px-4 md:py-2 md:text-base">
             {isCopied ? (
               <>
                 <p className="pr-1">Copied</p>

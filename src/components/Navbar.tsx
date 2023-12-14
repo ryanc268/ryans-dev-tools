@@ -2,7 +2,7 @@ import Navitem from "./NavItem";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center w-full text-sm text-center md:text-xl bg-zinc-800 h-24 mb-8">
+    <div className="mb-8 flex h-24 w-full items-center justify-between bg-zinc-800 text-center text-sm md:text-xl">
       <Navitem isFirst label="Home" page="/" />
       <Navitem label="UUID Generation" page="/uuid-generator" />
       <Navitem label="Unix Time" page="/unix-time" />

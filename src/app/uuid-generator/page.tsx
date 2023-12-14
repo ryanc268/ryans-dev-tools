@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="flex flex-col items-center text-center">
-      <h1 className="text-white text-xl md:text-4xl">UUID Generator Tool</h1>
+      <h1 className="text-xl md:text-4xl">UUID V4 Generator</h1>
       <UuidPage />
     </main>
   );
