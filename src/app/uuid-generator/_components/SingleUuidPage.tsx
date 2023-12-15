@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MdOutlineRefresh } from "react-icons/md";
 import { BsClipboard2, BsClipboard2Check } from "react-icons/bs";
@@ -33,7 +33,6 @@ const SingleUuidPage = () => {
   const refreshUuid = () => {
     setUuidHistory((h) => (isHistoryAsc ? [...h, mainUuid] : [mainUuid, ...h]));
     setMainUuid(crypto.randomUUID());
-    console.log("Refreshing");
   };
 
   const toggleCopy = () => {
@@ -49,7 +48,7 @@ const SingleUuidPage = () => {
 
   const reOrderHistory = (isAsc: boolean) => {
     if (isHistoryAsc != isAsc) {
-      setUuidHistory([...uuidHistory].reverse());
+      setUuidHistory((h) => [...h].reverse());
       setIsHistoryAsc(isAsc);
     }
   };
@@ -90,7 +89,7 @@ const SingleUuidPage = () => {
         </div>
       </div>
       {uuidHistory.length > 0 && (
-        <div className="flex w-full flex-col items-center justify-center px-4">
+        <div className="flex w-full flex-col items-center justify-center px-4 md:px-0">
           <div className="mt-4 flex w-full items-center justify-between md:mb-4 md:mt-8 md:w-3/4 2xl:w-1/2">
             <div className="flex items-center">
               <h4 className="md:text-2xl">History</h4>
@@ -115,16 +114,15 @@ const SingleUuidPage = () => {
       )}
       <div className="mx-4 flex h-[55vh] flex-col overflow-y-auto md:mx-0 md:h-[50vh] md:w-3/4 2xl:w-1/2">
         {uuidHistory.map((u, i) => (
-          <>
+          <Fragment key={u}>
             <UuidRecord
-              key={i}
               order={isHistoryAsc ? i + 1 : uuidHistory.length - i}
               uuid={u}
             />
             {i != uuidHistory.length - 1 && (
               <hr className="mt-4 w-3/4 self-center border-dashed border-zinc-400 opacity-60" />
             )}
-          </>
+          </Fragment>
         ))}
       </div>
     </div>

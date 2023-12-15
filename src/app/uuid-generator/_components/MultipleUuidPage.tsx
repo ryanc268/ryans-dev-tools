@@ -32,7 +32,6 @@ const MultipleUuidPage = () => {
 
   const generateUuids = () => {
     if (!numToGenerate || numToGenerate < 1) return;
-    console.log("Generating");
     let tempString = "";
     if (copyOption === UuidCopyOptions.REGULAR) {
       for (let i = 0; i < numToGenerate; i++) {
@@ -83,7 +82,7 @@ const MultipleUuidPage = () => {
         />
       </div>
       <button
-        className="mt-4 rounded-lg border px-4 py-2 hover:bg-zinc-800 disabled:opacity-25 disabled:hover:bg-transparent"
+        className="mt-4 rounded-lg border px-2 py-1 text-sm hover:bg-zinc-800 disabled:opacity-25 disabled:hover:bg-transparent md:px-4 md:py-2 md:text-base"
         disabled={numToGenerate && numToGenerate > 0 ? false : true}
         onClick={() => generateUuids()}
         ref={buttonRef}
@@ -91,7 +90,7 @@ const MultipleUuidPage = () => {
         Generate
       </button>
       <textarea
-        className="my-4 w-5/6 resize-none rounded-lg border bg-transparent p-2 text-sm md:mx-0 md:w-1/2 2xl:w-1/4 md:text-xl"
+        className="my-4 w-5/6 resize-none rounded-lg border bg-transparent p-2 text-sm md:mx-0 md:w-1/2 md:text-xl 2xl:w-1/4"
         readOnly
         rows={10}
         value={uuidString}
