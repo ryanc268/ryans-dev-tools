@@ -39,7 +39,7 @@ const MultipleUuidPage = () => {
     for (let i = 0; i < numToGenerate; i++) {
       const uuid = crypto.randomUUID();
       tempString += uuid + "\n";
-      tempStringSql += `\"${uuid}\"${i !== numToGenerate - 1 ? ", \n" : ""}`;
+      tempStringSql += `\'${uuid}\'${i !== numToGenerate - 1 ? ", \n" : ""}`;
     }
     tempStringSql += ")";
 
