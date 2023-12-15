@@ -23,7 +23,10 @@ const UuidRecord: React.FC<UuidRecordProps> = ({ order, uuid }) => {
       <h4 className="w-2/3 px-8 text-right text-sm md:text-lg">{uuid}</h4>
       <div className="flex w-1/3 justify-start">
         <CopyToClipboard text={uuid} onCopy={() => toggleCopy()}>
-          <button className="flex items-center rounded-lg border px-2 py-1 text-sm hover:bg-zinc-700 md:px-4 md:py-2 md:text-base">
+          <button
+            className="flex items-center rounded-lg border px-2 py-1 text-sm hover:bg-zinc-700 md:px-4 md:py-2 md:text-base"
+            onKeyDown={(e) => e.preventDefault()}
+          >
             {isCopied ? (
               <>
                 <p className="pr-1">Copied</p>

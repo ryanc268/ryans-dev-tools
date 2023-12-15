@@ -1,5 +1,5 @@
-import UuidPage from "@/components/UuidPage";
 import { Metadata } from "next";
+import UuidPageWrapper from "./_components/UuidPageWrapper";
 
 export const metadata: Metadata = {
   title: "UUID Generation - Ryan's Dev Tools",
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="flex flex-col items-center text-center">
-      <h1 className="text-xl md:text-4xl">UUID V4 Generator</h1>
-      <UuidPage />
+      <h1 className="text-lg md:text-3xl">UUID V4 Generator</h1>
+      <UuidPageWrapper />
     </main>
   );
 }
