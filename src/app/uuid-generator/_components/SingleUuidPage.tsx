@@ -9,7 +9,7 @@ import { IoMdArrowDropup } from "react-icons/io";
 import UuidRecord from "./UuidRecord";
 
 const SingleUuidPage = () => {
-  const [mainUuid, setMainUuid] = useState(crypto.randomUUID());
+  const [mainUuid, setMainUuid] = useState("");
   const [isCopied, setIsCopied] = useState(false);
   const [isHistoryAsc, setIsHistoryAsc] = useState(false);
   const [uuidHistory, setUuidHistory] = useState<string[]>([]);
@@ -17,6 +17,9 @@ const SingleUuidPage = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    //Set here to avoid hydration error
+    setMainUuid(crypto.randomUUID());
+    
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Enter" && buttonRef.current) {
         buttonRef.current.click();
